@@ -1,0 +1,8 @@
+export enum OrderStatus{
+    ACTIVE="ACTIVE",
+    PLACED="PLACED",
+    SHIPPED="SHIPPED",
+    DELIVERED="DELIVERED",
+    COMPLETED="COMPLETED",
+    CANCELED="CANCELED",
+}
