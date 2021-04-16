@@ -83,7 +83,7 @@ function ShoppingCartPage() {
           </Grid>
         </Grid>
       )): null}
-      {activeOrder && activeOrder.orderItemsList.length>0 ? <Total products={activeOrder.orderItemsList} /> : <h1>you dont have any order.</h1>}
+      {activeOrder && activeOrder.orderItemsList.length>0 ? <Total products={activeOrder.orderItemsList} /> : <h1>you dont have any Item in Shopping Cart.</h1>}
 
       <Button onClick={handleCheckOut}>Checkout</Button>
     </div>

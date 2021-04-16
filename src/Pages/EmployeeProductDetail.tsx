@@ -44,6 +44,12 @@ function ProductDetails() {
   const product = useSelector(selectProductById);
   const dispatch = useDispatch();
   //elements in product
+  const [myImg, setMyImg]=useState({
+    file: '',
+    imagePreviewUrl: '',
+  });
+
+  //const [imgUrlByteArray, setImgUrlByteArray]=useState<Uint8Array>();
   const [name, setName] = useState(product.productName);
   const [quantity, setQuantity] = useState(product.quantity);
   const [price, setPrice] = useState(product.retailPrice);
@@ -51,7 +57,22 @@ function ProductDetails() {
   const [description, setDescription] = useState(product.description);
   const categories = [Category.FOOD, Category.ELECTRONICS, Category.SNEAKERS, Category.DRINK];
   const [returnCategory,setReturnCategory]=useState<Category>(Category.FOOD);
+//transfer from string to byte array
+  function saveIMG(image:any) {
+    const startIndex = image.indexOf("base64,") + 7;
+    const b64 = image.substr(startIndex);
+    const byteCharacters = atob(b64);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    return new Uint8Array(byteNumbers);
+  }
+
   function handleSubmit() {
+    //setImgUrlByteArray(saveIMG(myImg.imagePreviewUrl));
+   // console.log(imgUrlByteArray);
+
     const newProduct = {
       id: product.id,
       productName: name,
@@ -59,9 +80,10 @@ function ProductDetails() {
       retailPrice: price,
       cost: cost,
       description: description,
-      pictureURL: [],
+      pictureURL:myImg.imagePreviewUrl,
       category: returnCategory,
     };
+    console.log(newProduct.pictureURL)
     ProductService.UpdateProduct(newProduct).then((response) => {
       dispatch({ type: UPDATE_PRODUCT, UpdatedProduct: response.data });
     });
@@ -78,7 +100,17 @@ function handleDelete(){
       history.push("/");
     })
 }
-
+function handleImgChange(e:any){
+    e.preventDefault();
+  let reader = new FileReader();
+  let file = e.target.files[0];
+  reader.onloadend = () => {
+    // @ts-ignore
+    setMyImg({ file: file, imagePreviewUrl: reader.result });
+  }
+  reader.readAsDataURL(file)
+}
+//URL.createObjectURL(e.target.files[0])
   return (
     <div className={classes.root}>
       <Container>
@@ -105,18 +137,14 @@ function handleDelete(){
 
             <Grid container item xs={12}>
               <img
-                src={
-                  "https://images-na.ssl-images-amazon.com/images/I/81sQxjJBn1L._AC_SX679_.jpg"
-                }
+               // src={"https://images-na.ssl-images-amazon.com/images/I/81sQxjJBn1L._AC_SX679_.jpg"}
+                  className="img"
+                  src={myImg.imagePreviewUrl ? myImg.imagePreviewUrl : product.pictureURL}
                 alt={id}
               />
               img link:
-              <TextField
-                type="number"
-                variant="outlined"
-                name="quantity"
-                id="quantity"
-              />
+              <input type="file" name="myImg" onChange={handleImgChange}/>
+
             </Grid>
             <Grid item>
               <Grid>

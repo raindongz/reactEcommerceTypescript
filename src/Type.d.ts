@@ -19,7 +19,7 @@ interface Product {
   retailPrice: number;
   cost: number;
   description: string;
-  pictureURL: byte[];
+  pictureURL: string;
   category: Category;
 }
 interface Order{

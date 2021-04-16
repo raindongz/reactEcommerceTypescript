@@ -249,9 +249,8 @@ function ProductDetails() {
 
             <Grid container item xs={12}>
               <img
-                src={
-                  "https://images-na.ssl-images-amazon.com/images/I/81sQxjJBn1L._AC_SX679_.jpg"
-                }
+               // src={"https://images-na.ssl-images-amazon.com/images/I/81sQxjJBn1L._AC_SX679_.jpg"}
+                  src={product.pictureURL}
                 alt={id}
               />
               <TextField

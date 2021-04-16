@@ -38,6 +38,10 @@ function AddNewProductPage() {
     const history=useHistory();
     const categories = [Category.FOOD, Category.ELECTRONICS, Category.SNEAKERS, Category.DRINK];
     //elements in product
+    const [myImg, setMyImg]=useState({
+        file: '',
+        imagePreviewUrl: '',
+    });
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState<number>(0);
     const [price, setPrice] = useState<number>(0.00);
@@ -52,7 +56,7 @@ function AddNewProductPage() {
             retailPrice: price,
             cost: cost,
             description: description,
-            pictureURL: [],
+            pictureURL:myImg.imagePreviewUrl,
             category: returnCategory,
         };
         ProductService.AddNewProduct(newProduct).then((response) => {
@@ -63,6 +67,16 @@ function AddNewProductPage() {
     }
     const myCallback=(returnCategory:Category)=>{
         setReturnCategory(returnCategory);
+    }
+    function handleImgChange(e:any){
+        e.preventDefault();
+        let reader = new FileReader();
+        let file = e.target.files[0];
+        reader.onloadend = () => {
+            // @ts-ignore
+            setMyImg({ file: file, imagePreviewUrl: reader.result });
+        }
+        reader.readAsDataURL(file)
     }
     return (
         <div className={classes.root}>
@@ -90,18 +104,13 @@ function AddNewProductPage() {
 
                         <Grid container item xs={12}>
                             <img
-                                src={
-                                    "https://picsum.photos/seed/picsum/200/300"
-                                }
-                                alt={"11"}
+                                // src={"https://images-na.ssl-images-amazon.com/images/I/81sQxjJBn1L._AC_SX679_.jpg"}
+                                className="img"
+                                src={myImg.imagePreviewUrl}
+                                alt={"id"}
                             />
                             img link:
-                            <TextField
-                                type="number"
-                                variant="outlined"
-                                name="quantity"
-                                id="quantity"
-                            />
+                            <input type="file" name="myImg" onChange={handleImgChange}/>
                         </Grid>
                         <Grid item>
                             <Grid>

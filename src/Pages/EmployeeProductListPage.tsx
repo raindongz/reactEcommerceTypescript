@@ -55,7 +55,7 @@ function EmployeeProductListPage() {
                                 <GridListTile key={product.id}>
                                     <img
                                         src={
-                                            img /*`data:image/jpg;base64,${imgBase64}` tile.pictureURL*/
+                                            product.pictureURL /*`data:image/jpg;base64,${imgBase64}` tile.pictureURL*/
                                         }
                                         alt={product.productName}
                                     />

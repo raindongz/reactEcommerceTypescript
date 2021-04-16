@@ -57,9 +57,8 @@ function ProductList() {
               {products.map((product: Product) => (
                 <GridListTile key={product.id}>
                   <img
-                    src={
-                      img /*`data:image/jpg;base64,${imgBase64}` tile.pictureURL*/
-                    }
+                    //src={img /*`data:image/jpg;base64,${imgBase64}` tile.pictureURL*/}
+                      src={product.pictureURL}
                     alt={product.productName}
                   />
                   <Link to={`/productDetail/${product.id}`}>

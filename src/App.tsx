@@ -22,8 +22,13 @@ import Checkout from "./Pages/CheckOutPage/CheckOut";
 import EmployeeProductListPage from "./Pages/EmployeeProductListPage";
 import EmployeeProductDetail from "./Pages/EmployeeProductDetail";
 import AddNewProductPage from "./Pages/AddNewProductPage";
+import {role} from "./Type";
+import {useSelector} from "react-redux";
 
 function App() {
+  const selectUserInfo = (state: any) =>
+      state.authReducer.map((authInfo: role) => authInfo);
+  const userInfo: role[] = useSelector(selectUserInfo);
   return (
     <BrowserRouter>
       <div>
@@ -31,9 +36,11 @@ function App() {
           <li>
             <Link to="/">Home Page</Link>
           </li>
-          <li>
+          {userInfo[0] && userInfo[0].role === "EMPLOYEE" ? <li>
             <Link to="/employee">Employee Page</Link>
-          </li>
+          </li> : null}
+
+
         </ul>
         <Route path="/unauthorized" component={Unauthorized} />
         <PrivateRoute exact path="/" component={CustomerHomePage} />
