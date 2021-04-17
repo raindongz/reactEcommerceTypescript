@@ -236,7 +236,7 @@ function ProductDetails() {
 
   return (
     <div className={classes.root}>
-      <Container>
+      {product ? <Container>
         <form>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -249,38 +249,39 @@ function ProductDetails() {
 
             <Grid container item xs={12}>
               <img
-               // src={"https://images-na.ssl-images-amazon.com/images/I/81sQxjJBn1L._AC_SX679_.jpg"}
+                  className="img"
+                  // src={"https://images-na.ssl-images-amazon.com/images/I/81sQxjJBn1L._AC_SX679_.jpg"}
                   src={product.pictureURL}
-                alt={id}
+                  alt={id}
               />
               <TextField
-                variant="outlined"
-                disabled
-                name="quantity"
-                label={productQuantity}
-                id="quantity"
+                  variant="outlined"
+                  disabled
+                  name="quantity"
+                  label={productQuantity}
+                  id="quantity"
               />
               <Button
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-                onClick={() =>
-                  productQuantity < product.quantity
-                    ? setProductQuantity(productQuantity + 1)
-                    : null
-                }
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                  onClick={() =>
+                      productQuantity < product.quantity
+                          ? setProductQuantity(productQuantity + 1)
+                          : null
+                  }
               >
                 +
               </Button>
               <Button
-                variant="contained"
-                color="secondary"
-                className={classes.submit}
-                onClick={() =>
-                  productQuantity > 1
-                    ? setProductQuantity(productQuantity - 1)
-                    : null
-                }
+                  variant="contained"
+                  color="secondary"
+                  className={classes.submit}
+                  onClick={() =>
+                      productQuantity > 1
+                          ? setProductQuantity(productQuantity - 1)
+                          : null
+                  }
               >
                 -
               </Button>
@@ -288,10 +289,10 @@ function ProductDetails() {
             <Grid item>
               <h2>Unit Price: ${product.retailPrice}</h2>
               <Button
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-                onClick={handleAddToCart}
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                  onClick={handleAddToCart}
               >
                 Add to cart
               </Button>
@@ -300,7 +301,7 @@ function ProductDetails() {
             </Grid>
           </Grid>
         </form>
-      </Container>
+      </Container> : null}
     </div>
   );
 }

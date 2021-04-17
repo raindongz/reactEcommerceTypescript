@@ -162,8 +162,6 @@ export default function Checkout() {
 
           <Grid item xs={12}>
             <TextField
-              variant="outlined"
-              margin="normal"
               fullWidth
               id="address"
               label="Address"

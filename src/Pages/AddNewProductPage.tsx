@@ -7,7 +7,7 @@ import {Button, Container, Grid, TextField} from "@material-ui/core";
 import {Category} from "../Enums/Category";
 import ProductService from "../Service/ProductService";
 import {ADD_PRODUCT} from "../redux/Actions/ProductActionTypes";
-import CategoryDragDownMenu from "../Styles/MaterialUI/ForEmployeeOrderDetailPage/CategoryDragDownMenu";
+import CategoryDragDownMenu from "../Styles/MaterialUI/ForEmployeeProductDetailPage/CategoryDragDownMenu";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

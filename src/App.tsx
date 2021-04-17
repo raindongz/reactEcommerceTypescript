@@ -56,8 +56,8 @@ function App() {
         <Switch>
           <PrivateRoute path="/productList/:id" component={ProductList} />
           <PrivateRoute path="/productDetail/:id" component={ProductDetails}/>
-          <AuthRoute path="/employeeProductList/:id" component={EmployeeProductListPage} />
-          <AuthRoute path="/employeeProductDetail/:id" component={EmployeeProductDetail}/>
+          <AuthRoute path="/employeePage/employeeProductList/:id" component={EmployeeProductListPage} />
+          <AuthRoute path="/employeePage/employeeProductDetail/:id" component={EmployeeProductDetail}/>
         </Switch>
       </div>
     </BrowserRouter>

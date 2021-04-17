@@ -8,7 +8,8 @@ import {Button, Container, Grid, TextField} from "@material-ui/core";
 import {Category} from "../Enums/Category";
 import ProductService from "../Service/ProductService";
 import {UPDATE_PRODUCT} from "../redux/Actions/ProductActionTypes";
-import CategoryDragDownMenu from "../Styles/MaterialUI/ForEmployeeOrderDetailPage/CategoryDragDownMenu";
+import CategoryDragDownMenu from "../Styles/MaterialUI/ForEmployeeProductDetailPage/CategoryDragDownMenu";
+import AddNewProductSnackbars from "../Styles/MaterialUI/ForEmployeeProductDetailPage/AddNewProductSnackBar";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-function ProductDetails() {
+function EmployeeProductDetails() {
   const classes = useStyles();
   let { id }: any = useParams();
 
@@ -49,6 +50,7 @@ function ProductDetails() {
     imagePreviewUrl: '',
   });
 
+  const [updateProductSnackBarOpen, setUpdateProductSnackBarOpen]=useState(false);
   //const [imgUrlByteArray, setImgUrlByteArray]=useState<Uint8Array>();
   const [name, setName] = useState(product.productName);
   const [quantity, setQuantity] = useState(product.quantity);
@@ -72,7 +74,6 @@ function ProductDetails() {
   function handleSubmit() {
     //setImgUrlByteArray(saveIMG(myImg.imagePreviewUrl));
    // console.log(imgUrlByteArray);
-
     const newProduct = {
       id: product.id,
       productName: name,
@@ -80,21 +81,29 @@ function ProductDetails() {
       retailPrice: price,
       cost: cost,
       description: description,
-      pictureURL:myImg.imagePreviewUrl,
+      pictureURL:myImg.imagePreviewUrl ? myImg.imagePreviewUrl: product.pictureURL,
       category: returnCategory,
     };
     console.log(newProduct.pictureURL)
     ProductService.UpdateProduct(newProduct).then((response) => {
       dispatch({ type: UPDATE_PRODUCT, UpdatedProduct: response.data });
+      setUpdateProductSnackBarOpen(true);
     });
 
   }
+
+  const handleSnackBarClose = (event?: React.SyntheticEvent, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setUpdateProductSnackBarOpen(false);
+  };
+
   const myCallback=(returnCategory:Category)=>{
     setReturnCategory(returnCategory);
   }
-function handleAddNew(){
-  history.push("/addNewProduct");
-}
+
+
 function handleDelete(){
     ProductService.DeleteProduct(product.id).then((response)=>{
       history.push("/");
@@ -110,9 +119,11 @@ function handleImgChange(e:any){
   }
   reader.readAsDataURL(file)
 }
-//URL.createObjectURL(e.target.files[0])
   return (
     <div className={classes.root}>
+      <AddNewProductSnackbars open={updateProductSnackBarOpen}
+                              handleSnackBarClose={handleSnackBarClose}
+      />
       <Container>
         <form>
           <Grid container spacing={2}>
@@ -188,13 +199,7 @@ function handleImgChange(e:any){
                 >
                   Submit
                 </Button>
-                <Button
-                  variant="contained"
-                  color="default"
-                  onClick={handleAddNew}
-                >
-                  AddNewProduct
-                </Button>
+
                   <Button
                       variant="contained"
                       color="secondary"
@@ -210,4 +215,4 @@ function handleImgChange(e:any){
     </div>
   );
 }
-export default ProductDetails;
+export default EmployeeProductDetails;
