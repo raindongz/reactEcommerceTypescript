@@ -19,7 +19,6 @@ function HomePage() {
   },[]);
   return (
     <div>
-      <Container>
         <form>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -30,7 +29,6 @@ function HomePage() {
             </Grid>
           </Grid>
         </form>
-      </Container>
     </div>
   );
 }

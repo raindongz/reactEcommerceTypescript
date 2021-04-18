@@ -236,12 +236,11 @@ function ProductDetails() {
 
   return (
     <div className={classes.root}>
-      {product ? <Container>
-        <form>
+      {product ?
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+
               <PrimarySearchAppBar />
-            </Grid>
+
             <Grid item xs={12}>
               <h1>ProductName:{product.productName}</h1>
               Stock: {product.quantity} left
@@ -300,8 +299,7 @@ function ProductDetails() {
               {product.description}
             </Grid>
           </Grid>
-        </form>
-      </Container> : null}
+       : null}
     </div>
   );
 }
