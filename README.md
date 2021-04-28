@@ -1,10 +1,6 @@
-# Getting Started with Create React App
+# React E-Commerce Website With React-Redux/TypeScript/React Hooks/Material UI
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-E-Commerce website frontend with React-Redux/Typescript/React Hooks
 
 functionality:
 
