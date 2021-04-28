@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+E-Commerce website front end with React-Redux/Typescript/React Hooks
+
 In the project directory, you can run:
 
 ### `npm start`
@@ -11,36 +13,34 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+signUp page
 
-### `npm test`
+<img src="https://user-images.githubusercontent.com/79245472/116343908-391df980-a79a-11eb-8eb8-5aa2d1296efd.png" width="90%"></img> 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Login Page
 
-### `npm run build`
+<img src="https://user-images.githubusercontent.com/79245472/116343926-433ff800-a79a-11eb-97e5-21e163614836.png" width="90%"></img> 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Customer's Home Page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src="https://user-images.githubusercontent.com/79245472/116343867-26a3c000-a79a-11eb-9823-9b02c1c1bea4.png" width="90%"></img> 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Product List Page
 
-### `npm run eject`
+<img src="https://user-images.githubusercontent.com/79245472/116343877-2acfdd80-a79a-11eb-9955-3dd62c395c2c.png" width="90%"></img> 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Product Detail page
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img src="https://user-images.githubusercontent.com/79245472/116343885-2d323780-a79a-11eb-84dc-923b3f980306.png" width="90%"></img> 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Check Out page
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+<img src="https://user-images.githubusercontent.com/79245472/116343943-49ce6f80-a79a-11eb-9836-af98e7af2cfe.png" width="90%"></img> 
+<img src="https://user-images.githubusercontent.com/79245472/116343950-4b983300-a79a-11eb-9d3b-427bc85bc324.png" width="90%"></img> 
+<img src="https://user-images.githubusercontent.com/79245472/116343968-53f06e00-a79a-11eb-9059-93503059569d.png" width="90%"></img> 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Employee Page
+<img src="https://user-images.githubusercontent.com/79245472/116343955-4d61f680-a79a-11eb-956c-8d157661e293.png" width="90%"></img> 
+<img src="https://user-images.githubusercontent.com/79245472/116343982-594db880-a79a-11eb-9343-b0042486f26b.png" width="90%"></img> 
+<img src="https://user-images.githubusercontent.com/79245472/116343990-5bb01280-a79a-11eb-8bb1-b1dfc79d3dca.png" width="90%"></img> 
