@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-E-Commerce website front end with React-Redux/Typescript/React Hooks
+E-Commerce website frontend with React-Redux/Typescript/React Hooks
 
 In the project directory, you can run:
 
