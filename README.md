@@ -6,6 +6,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 E-Commerce website frontend with React-Redux/Typescript/React Hooks
 
+functionality:
+
+1.Signup: User can sign up for a new account with an email address as username and complex password (Contains upper- & lower-case characters and at least one number and one symbol).
+
+2.Authentication: Use spring security with basic authentication. User can log in with existing username and password.
+
+3.Authorization: employee can update/add/delete the products where normal customer can only get the product information.
+
+4.shopping cart/create order: user can add products to shopping cart and delete items from shopping cart. After user input the address/payment information and click check out, an order will be created if all shopping cart items is in stock.Shopping cart items will be stored in database, so every user will be able to save their shopping cart items and retrieve them later.
+
+
 In the project directory, you can run:
 
 ### `npm start`
